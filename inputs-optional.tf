@@ -24,13 +24,13 @@ variable "vm_publisher_name" {
 variable "vm_offer" {
   description = "The offer name of the VM image"
   type        = string
-  default     = "UbuntuServer"
+  default     = "ubuntu-24_04-lts"
 
 }
 variable "vm_sku" {
   description = "The SKU name of the VM image"
   type        = string
-  default     = "24_04-lts"
+  default     = "server"
 }
 
 variable "vm_size" {

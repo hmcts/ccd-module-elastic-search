@@ -27,7 +27,7 @@ module "ccd-test" {
       storage_account_type     = "StandardSSD_LRS"
       disk_create_option       = "Empty"
       disk_size_gb             = "1024"
-      disk_tier                = "Standard"
+      disk_tier                = null
       disk_lun                 = "0"
       attachment_create_option = "Attach"
       source_resource_id       = null
@@ -44,7 +44,7 @@ module "ccd-test" {
       storage_account_type     = "StandardSSD_LRS"
       disk_create_option       = "Empty"
       disk_size_gb             = "1024"
-      disk_tier                = "Standard"
+      disk_tier                = null
       disk_lun                 = "1"
       attachment_create_option = "Attach"
       source_resource_id       = null

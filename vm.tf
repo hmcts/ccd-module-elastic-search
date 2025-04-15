@@ -6,7 +6,7 @@ module "virtual-machines" {
     azurerm.dcr = azurerm.dcr
   }
 
-  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=master"
+  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=allow-os-disk-name"
   vm_type              = "linux"
   vm_name              = var.vm_name
   env                  = var.env
