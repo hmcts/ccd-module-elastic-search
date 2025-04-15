@@ -18,7 +18,9 @@ module "ccd-test" {
   vm_admin_password = random_password.vm_password.result
   vm_subnet_id      = azurerm_subnet.subnet.id
   vm_private_ip     = "10.0.38.10"
-  tags              = merge(module.ctags.common_tags, { expiresAfter = local.expiresAfter })
+
+  os_disk_name = "ccd-data-osdisk"
+  tags         = merge(module.ctags.common_tags, { expiresAfter = local.expiresAfter })
   managed_disks = {
     disk1 = {
       name                     = "ccd-data-0-datadisk"
