@@ -17,17 +17,17 @@ module "ccd-test" {
   vm_resource_group = azurerm_resource_group.rg.name
   vm_admin_password = random_password.vm_password.result
   vm_subnet_id      = azurerm_subnet.subnet.id
-  vm_private_ip     = "10.0.38.10"
+  vm_private_ip     = "10.1.1.10"
   tags              = merge(module.ctags.common_tags, { expiresAfter = local.expiresAfter })
   managed_disks = {
     disk1 = {
       name                     = "ccd-data-0-datadisk"
       location                 = azurerm_resource_group.rg.location
       resource_group_name      = azurerm_resource_group.rg.name
-      storage_account_type     = "StandardSSD_LRS"
+      storage_account_type     = "Premium_LRS"
       disk_create_option       = "Empty"
-      disk_size_gb             = "1024"
-      disk_tier                = "Standard"
+      disk_size_gb             = "64"
+      disk_tier                = "P6"
       disk_lun                 = "0"
       attachment_create_option = "Attach"
       source_resource_id       = null
@@ -41,10 +41,10 @@ module "ccd-test" {
       name                     = "ccd-data-1-datadisk"
       location                 = azurerm_resource_group.rg.location
       resource_group_name      = azurerm_resource_group.rg.name
-      storage_account_type     = "StandardSSD_LRS"
+      storage_account_type     = "Premium_LRS"
       disk_create_option       = "Empty"
-      disk_size_gb             = "1024"
-      disk_tier                = "Standard"
+      disk_size_gb             = "64"
+      disk_tier                = "P6"
       disk_lun                 = "1"
       attachment_create_option = "Attach"
       source_resource_id       = null
@@ -75,9 +75,18 @@ resource "random_password" "vm_password" {
 
 }
 
+# Create a new virtual network
+resource "azurerm_virtual_network" "vnet" {
+  name                = azurerm_resource_group.rg.name
+  address_space       = ["10.1.0.0/16"]
+  location            = "uksouth" # use the same region as your resource group
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+# Create a subnet in the new VNet
 resource "azurerm_subnet" "subnet" {
   name                 = "vm-subnet"
-  resource_group_name  = "ciaran-test"
-  virtual_network_name = "ciaran-test-vnet"
-  address_prefixes     = ["10.0.38.0/27"]
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.1.1.0/24"]
 }
