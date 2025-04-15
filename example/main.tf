@@ -18,7 +18,9 @@ module "ccd-test" {
   vm_admin_password = random_password.vm_password.result
   vm_subnet_id      = azurerm_subnet.subnet.id
   vm_private_ip     = "10.0.38.10"
-  tags              = merge(module.ctags.common_tags, { expiresAfter = local.expiresAfter })
+
+  os_disk_name = "ccd-data-osdisk"
+  tags         = merge(module.ctags.common_tags, { expiresAfter = local.expiresAfter })
   managed_disks = {
     disk1 = {
       name                     = "ccd-data-0-datadisk"
@@ -27,7 +29,7 @@ module "ccd-test" {
       storage_account_type     = "StandardSSD_LRS"
       disk_create_option       = "Empty"
       disk_size_gb             = "1024"
-      disk_tier                = "Standard"
+      disk_tier                = null
       disk_lun                 = "0"
       attachment_create_option = "Attach"
       source_resource_id       = null
@@ -44,7 +46,7 @@ module "ccd-test" {
       storage_account_type     = "StandardSSD_LRS"
       disk_create_option       = "Empty"
       disk_size_gb             = "1024"
-      disk_tier                = "Standard"
+      disk_tier                = null
       disk_lun                 = "1"
       attachment_create_option = "Attach"
       source_resource_id       = null

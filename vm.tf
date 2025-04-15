@@ -23,6 +23,7 @@ module "virtual-machines" {
   vm_version           = var.vm_version
   vm_private_ip        = var.vm_private_ip
 
+  os_disk_name                 = var.os_disk_name
   os_disk_storage_account_type = var.os_disk_storage_account_type
   os_disk_size_gb              = var.os_disk_size_gb
   managed_disks                = var.managed_disks

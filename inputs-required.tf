@@ -60,3 +60,8 @@ variable "managed_disks" {
   description = "A map of managed disks to create & attach to the virtual machine."
 
 }
+
+variable "os_disk_name" {
+  description = "Name of the OS disk"
+  type        = string
+}
