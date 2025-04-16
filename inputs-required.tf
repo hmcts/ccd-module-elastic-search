@@ -40,20 +40,20 @@ variable "managed_disks" {
     object(
       {
         name                     = string,
-        location                 = string,
+        location                 = optional(string, "uksouth"),
         resource_group_name      = string,
         storage_account_type     = string,
-        disk_create_option       = string,
-        disk_size_gb             = string,
-        disk_tier                = string,
-        disk_zone                = string,
-        source_resource_id       = string,
-        storage_account_id       = string,
-        hyper_v_generation       = string,
-        os_type                  = string,
+        disk_create_option       = optional(string, "Empty"),
+        disk_size_gb             = optional(string, "1024"),
+        disk_tier                = optional(string, null),
+        disk_zone                = optional(string, null),
+        source_resource_id       = optional(string, null),
+        storage_account_id       = optional(string, null),
+        hyper_v_generation       = optional(string, null),
+        os_type                  = optional(string, null),
         disk_lun                 = string,
-        disk_caching             = string,
-        attachment_create_option = string
+        disk_caching             = optional(string, "None"),
+        attachment_create_option = optional(string, "Attach")
       }
     )
   )

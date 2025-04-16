@@ -23,38 +23,22 @@ module "ccd-test" {
   tags         = merge(module.ctags.common_tags, { expiresAfter = local.expiresAfter })
   managed_disks = {
     disk1 = {
-      name                     = "ccd-data-0-datadisk"
-      location                 = azurerm_resource_group.rg.location
-      resource_group_name      = azurerm_resource_group.rg.name
-      storage_account_type     = "StandardSSD_LRS"
-      disk_create_option       = "Empty"
-      disk_size_gb             = "1024"
-      disk_tier                = null
-      disk_lun                 = "0"
-      attachment_create_option = "Attach"
-      source_resource_id       = null
-      storage_account_id       = null
-      hyper_v_generation       = null
-      os_type                  = null
-      disk_zone                = null
-      disk_caching             = "None"
+      name = "ccd-data-0-datadisk"
+
+      resource_group_name  = azurerm_resource_group.rg.name
+      storage_account_type = "StandardSSD_LRS"
+
+      disk_lun = "0"
+
     }
     disk2 = {
-      name                     = "ccd-data-1-datadisk"
-      location                 = azurerm_resource_group.rg.location
-      resource_group_name      = azurerm_resource_group.rg.name
-      storage_account_type     = "StandardSSD_LRS"
-      disk_create_option       = "Empty"
-      disk_size_gb             = "1024"
-      disk_tier                = null
-      disk_lun                 = "1"
-      attachment_create_option = "Attach"
-      source_resource_id       = null
-      storage_account_id       = null
-      hyper_v_generation       = null
-      os_type                  = null
-      disk_zone                = null
-      disk_caching             = "None"
+      name = "ccd-data-1-datadisk"
+
+      resource_group_name  = azurerm_resource_group.rg.name
+      storage_account_type = "StandardSSD_LRS"
+
+      disk_lun = "1"
+
     }
   }
 }
