@@ -91,3 +91,15 @@ variable "custom_script_extension_name" {
   type        = string
   default     = "HMCTSBootstrapScript"
 }
+
+variable "soc_vault_rg" {
+  description = "The name of the resource group where the SOC Key Vault is located."
+  type        = string
+  default     = null
+}
+
+variable "soc_vault_name" {
+  description = "The name of the SOC Key Vault."
+  type        = string
+  default     = null
+}
