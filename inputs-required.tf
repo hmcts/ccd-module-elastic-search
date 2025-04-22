@@ -53,7 +53,7 @@ variable "managed_disks" {
         os_type                  = optional(string, null),
         disk_lun                 = string,
         disk_caching             = optional(string, "None"),
-        attachment_create_option = optional(string, "Empty")
+        attachment_create_option = optional(string, "Attach")
       }
     )
   )
