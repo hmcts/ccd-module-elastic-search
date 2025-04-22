@@ -6,7 +6,7 @@ module "virtual-machines" {
     azurerm.dcr = azurerm.dcr
   }
 
-  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=DTSPO-24689-soc-cnp"
+  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=main"
   vm_type              = "linux"
   vm_name              = var.vm_name
   env                  = var.env
@@ -35,6 +35,6 @@ module "virtual-machines" {
   custom_script_extension_name = var.custom_script_extension_name
   tags                         = var.tags
 
-  soc_vault_rg   = var.soc_vault_rg
-  soc_vault_name = var.soc_vault_name
+  soc_vault_rg   = var.l_soc_vault_rg
+  soc_vault_name = var.l_soc_vault_name
 }
