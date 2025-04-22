@@ -35,6 +35,6 @@ module "virtual-machines" {
   custom_script_extension_name = var.custom_script_extension_name
   tags                         = var.tags
 
-  soc_vault_rg   = var.l_soc_vault_rg
-  soc_vault_name = var.l_soc_vault_name
+  soc_vault_rg   = local.l_soc_vault_rg
+  soc_vault_name = local.l_soc_vault_name
 }
