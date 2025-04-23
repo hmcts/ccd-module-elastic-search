@@ -37,4 +37,6 @@ module "virtual-machines" {
 
   soc_vault_rg   = local.l_soc_vault_rg
   soc_vault_name = local.l_soc_vault_name
+
+  vm_admin_ssh_key = var.vm_admin_ssh_key
 }
