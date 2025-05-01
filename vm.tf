@@ -6,7 +6,7 @@ module "virtual-machines" {
     azurerm.dcr = azurerm.dcr
   }
 
-  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=master"
+  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=DTSPO-24943-AAD"
   vm_type              = "linux"
   vm_name              = var.vm_name
   env                  = var.env
