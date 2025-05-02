@@ -7,12 +7,12 @@ locals {
 resource "azurerm_lb" "this" {
   name                = "ccd-internal-${var.env}-lb"
   location            = var.location
-  resource_group_name = var.resource_group_name
+  resource_group_name = "ccd-elastic-search-${var.env}"
   sku                 = "Standard"
 
   frontend_ip_configuration {
     name                          = "LBFE"
-    subnet_id                     = var.subnet_id
+    subnet_id                     = var.subnet_name
     private_ip_address_allocation = "Static"
     private_ip_address            = var.private_ip_address
   }
