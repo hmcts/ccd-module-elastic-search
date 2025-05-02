@@ -68,11 +68,6 @@ variable "os_disk_name" {
 
 # Load Balancer Variables
 
-variable "lb_name" {}
-variable "location" {}
-variable "resource_group_name" {}
-
-variable "subnet_id" {}
 variable "vnet_id" {}
 variable "private_ip_address" {}
 
