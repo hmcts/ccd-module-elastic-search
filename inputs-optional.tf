@@ -48,7 +48,7 @@ variable "vm_version" {
 variable "install_azure_monitor" {
   description = "Install Azure Monitor agent"
   type        = bool
-  default     = true
+  default     = false
 
 }
 
