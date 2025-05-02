@@ -109,3 +109,4 @@ variable "vm_admin_ssh_key" {
   description = "The SSH public key to use for the admin user. This or vm_admin_password must be set."
   default     = null
 }
+
