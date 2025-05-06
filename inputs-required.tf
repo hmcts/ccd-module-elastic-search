@@ -83,3 +83,8 @@ variable "backend_vm_addresses" {
   type        = map(string)
   description = "Map of VM names to IP addresses"
 }
+
+variable "private_ip_address" {
+  description = "Private IP address for the load balancer"
+  type        = string
+}
