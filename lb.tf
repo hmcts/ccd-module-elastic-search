@@ -12,7 +12,7 @@ resource "azurerm_lb" "this" {
 
   frontend_ip_configuration {
     name                          = "LBFE"
-    subnet_id                     = var.subnet_name
+    subnet_id                     = var.vm_subnet_id
     private_ip_address_allocation = "Static"
     private_ip_address            = var.private_ip_address
   }
