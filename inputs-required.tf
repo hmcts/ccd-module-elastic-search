@@ -65,3 +65,21 @@ variable "os_disk_name" {
   description = "Name of the OS disk"
   type        = string
 }
+
+variable "vms" {
+  description = "Map of VM definitions including IPs"
+  type = map(object({
+    name = string
+    ip   = string
+    managed_disks = map(object({
+      name                = string
+      resource_group_name = string
+      disk_lun            = string
+    }))
+  }))
+}
+
+variable "backend_vm_addresses" {
+  type        = map(string)
+  description = "Map of VM names to IP addresses"
+}
