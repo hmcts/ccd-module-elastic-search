@@ -65,37 +65,3 @@ variable "os_disk_name" {
   description = "Name of the OS disk"
   type        = string
 }
-
-# Load Balancer Variables
-
-variable "vnet_id" {}
-variable "private_ip_address" {}
-
-variable "backend_vm_addresses" {
-  type = map(string) # e.g., { "vm1" = "10.0.0.4", "vm2" = "10.0.0.5" }
-}
-
-variable "vms" {
-  description = "Map of VM definitions including IPs"
-  type = map(object({
-    name          = string
-    ip            = string
-    managed_disks = map(object({
-      name                = string
-      resource_group_name = string
-      disk_lun            = string
-    }))
-  }))
-}
-
-variable "vnet_name" {
-  type = string
-}
-
-variable "vnet_resource_group" {
-  type = string
-}
-
-variable "subnet_name" {
-  type = string
-}
