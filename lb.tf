@@ -14,7 +14,7 @@ resource "azurerm_lb" "this" {
     name                          = "LBFE"
     subnet_id                     = var.vm_subnet_id
     private_ip_address_allocation = "Static"
-    private_ip_address            = var.private_ip_address
+    private_ip_address            = var.lb_private_ip_address
   }
 }
 
