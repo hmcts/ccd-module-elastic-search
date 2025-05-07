@@ -49,7 +49,7 @@ resource "azurerm_lb_rule" "es_transport_internal" {
   protocol                       = "Tcp"
   frontend_port                  = 9300
   backend_port                   = 9300
-  frontend_ip_configuration_name = azurerm_lb.frontend_ip_configuration.this.name
+  frontend_ip_configuration_name = "LBFE"
   backend_address_pool_ids       = azurerm_lb_backend_address_pool.this.id
   probe_id                       = azurerm_lb_probe.es_probe_transport_internal.id
   loadbalancer_id                = azurerm_lb.this.id
@@ -60,7 +60,7 @@ resource "azurerm_lb_rule" "es_http_internal" {
   protocol                       = "Tcp"
   frontend_port                  = 9200
   backend_port                   = 9200
-  frontend_ip_configuration_name = azurerm_lb.frontend_ip_configuration.this.name
+  frontend_ip_configuration_name = "LBFE"
   backend_address_pool_ids       = azurerm_lb_backend_address_pool.this.id
   probe_id                       = azurerm_lb_probe.es_probe_internal_http.id
   loadbalancer_id                = azurerm_lb.this.id
