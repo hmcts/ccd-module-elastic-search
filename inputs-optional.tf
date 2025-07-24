@@ -111,3 +111,14 @@ variable "vm_admin_ssh_key" {
   sensitive   = true
 }
 
+variable "enable_availability_set" {
+  description = "Enable availability set for the VM"
+  type        = bool
+  default     = false
+}
+
+variable "availability_set_name" {
+  description = "The name of the availability set to use if enable_availability_set is true"
+  type        = string
+  default     = null
+}
