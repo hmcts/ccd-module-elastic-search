@@ -122,3 +122,8 @@ variable "availability_set_name" {
   type        = string
   default     = null
 }
+
+variable "platform_update_domain_count" {
+  description = "The number of platform update domains for the availability set"
+  type        = number
+  }
