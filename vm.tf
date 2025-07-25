@@ -6,22 +6,25 @@ module "virtual-machines" {
     azurerm.dcr = azurerm.dcr
   }
 
-  source               = "github.com/hmcts/terraform-module-virtual-machine.git?ref=master"
-  vm_type              = "linux"
-  vm_name              = var.vm_name
-  env                  = var.env
-  vm_resource_group    = var.vm_resource_group
-  vm_location          = var.location
-  vm_admin_name        = var.vm_admin_name
-  vm_admin_password    = var.vm_admin_password
-  vm_availabilty_zones = var.vm_availabilty_zones
-  vm_subnet_id         = var.vm_subnet_id
-  vm_publisher_name    = var.vm_publisher_name
-  vm_offer             = var.vm_offer
-  vm_sku               = var.vm_sku
-  vm_size              = var.vm_size
-  vm_version           = var.vm_version
-  vm_private_ip        = var.vm_private_ip
+  source                       = "github.com/hmcts/terraform-module-virtual-machine.git?ref=import-fixes-ccd-elk"
+  vm_type                      = "linux"
+  vm_name                      = var.vm_name
+  env                          = var.env
+  vm_resource_group            = var.vm_resource_group
+  vm_location                  = var.location
+  vm_admin_name                = var.vm_admin_name
+  vm_admin_password            = var.vm_admin_password != null ? var.vm_admin_password : null
+  vm_availabilty_zones         = var.vm_availabilty_zones
+  vm_subnet_id                 = var.vm_subnet_id
+  vm_publisher_name            = var.vm_publisher_name
+  vm_offer                     = var.vm_offer
+  vm_sku                       = var.vm_sku
+  vm_size                      = var.vm_size
+  vm_version                   = var.vm_version
+  vm_private_ip                = var.vm_private_ip
+  enable_availability_set      = var.enable_availability_set
+  availability_set_name        = var.availability_set_name
+  platform_update_domain_count = var.platform_update_domain_count
 
   os_disk_name                 = var.os_disk_name
   os_disk_storage_account_type = var.os_disk_storage_account_type
