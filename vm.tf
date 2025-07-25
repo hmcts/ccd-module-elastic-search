@@ -12,7 +12,7 @@ module "virtual-machines" {
   env                          = var.env
   vm_resource_group            = var.vm_resource_group
   vm_location                  = var.location
-  vm_admin_name                = var.vm_admin_name != null ? var.vm_admin_password : null
+  vm_admin_name                = var.vm_admin_name
   vm_admin_password            = var.vm_admin_password != null ? var.vm_admin_password : null
   vm_availabilty_zones         = var.vm_availabilty_zones
   vm_subnet_id                 = var.vm_subnet_id
@@ -41,7 +41,7 @@ module "virtual-machines" {
   soc_vault_rg   = local.l_soc_vault_rg
   soc_vault_name = local.l_soc_vault_name
 
-  vm_admin_ssh_key       = var.vm_admin_ssh_key != null ? var.vm_admin_password : null
+  vm_admin_ssh_key       = var.vm_admin_ssh_key
   deploy_entra_extension = true
   rbac_config            = local.rbac_config
 
