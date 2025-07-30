@@ -44,6 +44,8 @@ module "virtual-machines" {
   vm_admin_ssh_key       = var.vm_admin_ssh_key
   deploy_entra_extension = true
   rbac_config            = local.rbac_config
+  ipconfig_name          = var.ipconfig_name
+  privateip_allocation   = var.privateip_allocation
 
   disable_password_authentication = true
 }
