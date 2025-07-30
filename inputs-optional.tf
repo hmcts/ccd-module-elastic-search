@@ -126,4 +126,17 @@ variable "availability_set_name" {
 variable "platform_update_domain_count" {
   description = "The number of platform update domains for the availability set"
   type        = number
-  }
+  default     = 5
+}
+
+variable "ipconfig_name" {
+  type        = string
+  description = "The name of the IPConfig to asssoicate with the NIC."
+  default     = null
+}
+
+variable "privateip_allocation" {
+  type        = string
+  description = "The type of private IP allocation, either Static or Dynamic."
+  default     = "Dynamic"
+}
