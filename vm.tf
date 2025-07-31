@@ -6,7 +6,7 @@ module "virtual-machines" {
     azurerm.dcr = azurerm.dcr
   }
 
-  source                       = "github.com/hmcts/terraform-module-virtual-machine.git?ref=master"
+  source                       = "github.com/hmcts/terraform-module-virtual-machine.git?ref=DTSPO-26674-monitor"
   vm_type                      = "linux"
   vm_name                      = var.vm_name
   env                          = var.env
@@ -48,4 +48,7 @@ module "virtual-machines" {
   privateip_allocation   = var.privateip_allocation
 
   disable_password_authentication = true
+
+  azure_monitor_auto_upgrade_minor_version = var.azure_monitor_auto_upgrade_minor_version
+  azure_monitor_type_handler_version       = var.azure_monitor_type_handler_version
 }

@@ -140,3 +140,15 @@ variable "privateip_allocation" {
   description = "The type of private IP allocation, either Static or Dynamic."
   default     = "Dynamic"
 }
+
+variable "azure_monitor_auto_upgrade_minor_version" {
+  description = "Specifies if the platform deploys the latest minor version Azure Monitor update to the type_handler_version specified."
+  type        = bool
+  default     = false
+}
+
+variable "azure_monitor_type_handler_version" {
+  description = "Version of Azure Monitor - To find: az vm extension image list --location uksouth -p Microsoft.Azure.Monitor -o table"
+  type        = string
+  default     = "1.33"
+}
